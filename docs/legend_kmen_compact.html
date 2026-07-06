@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Legenda Kmen V15</title>
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --panel: #ffffff;
+      --ink: #1f1f1f;
+      --muted: #666;
+      --grid: #d8d2c8;
+      --map: #dcd5d0;
+      --water: #6aabb8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 14px/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #eee8dc;
+      border-bottom: 1px solid var(--grid);
+      padding: 12px;
+    }
+    h1 { margin: 0; font-size: 19px; letter-spacing: 0; }
+    .sub { margin-top: 3px; color: var(--muted); font-size: 12px; }
+    main { padding: 10px; max-width: 760px; margin: 0 auto; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--grid);
+      margin: 10px 0;
+    }
+    h2 {
+      margin: 0;
+      padding: 9px 10px;
+      font-size: 16px;
+      letter-spacing: 0;
+      background: #ece7de;
+      border-bottom: 1px solid var(--grid);
+    }
+    .row {
+      display: grid;
+      grid-template-columns: minmax(116px, 1fr) 148px;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee9df;
+    }
+    .row:last-child { border-bottom: 0; }
+    .label { min-width: 0; }
+    .label b { display: block; font-size: 13px; }
+    .label span { display: block; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+    code {
+      background: #efede8;
+      border-radius: 4px;
+      padding: 1px 3px;
+      font-size: 11px;
+    }
+    .sample {
+      height: 30px;
+      background: var(--map);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #cfc7bb;
+    }
+    .line {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 999px;
+    }
+    .solid { background: var(--c); height: var(--w); }
+    .dash {
+      background: repeating-linear-gradient(90deg, var(--c) 0 var(--d1), transparent var(--d1) var(--d2));
+      height: var(--w);
+    }
+    .casing {
+      background: var(--casing);
+      height: var(--cw);
+    }
+    .inner {
+      background: var(--inner);
+      height: var(--iw);
+      left: 20px;
+      right: 20px;
+    }
+    .area {
+      display: inline-block;
+      width: 68px;
+      height: 28px;
+      border: 1px solid #8886;
+      background: var(--fill);
+      vertical-align: middle;
+    }
+    .icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+      gap: 8px;
+      padding: 10px;
+    }
+    .icon {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid #e0d9cf;
+      background: #fff;
+      padding: 7px;
+      min-height: 38px;
+    }
+    .icon img { width: 24px; height: 24px; object-fit: contain; flex: 0 0 auto; }
+    .icon span { font-size: 12px; }
+    @media (max-width: 420px) {
+      .row { grid-template-columns: 1fr; }
+      .sample { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Legenda Kmen V15</h1>
+    <div class="sub">Aktualny styl: Internal/offline_v15.xml</div>
+  </header>
+  <main>
+    <section>
+      <h2>Rower</h2>
+      <div class="row">
+        <div class="label"><b>Ścieżka rowerowa</b><span><code>highway=cycleway</code></span></div>
+        <div class="sample"><span class="line solid" style="--c:#327a04;--w:5px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Cycleway nieutwardzona</b><span><code>highway=cycleway</code> + szuter/ziemia/piasek</span></div>
+        <div class="sample"><span class="line solid" style="--c:#b8aa38;--w:8px"></span><span class="line solid" style="--c:#327a04;--w:5px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Path z dostępem rowerowym</b><span><code>highway=path</code> + <code>bicycle=yes|designated</code></span></div>
+        <div class="sample"><span class="line solid" style="--c:#b8aa38;--w:6px"></span><span class="line solid" style="--c:#00a878;--w:5px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Path z cycleway</b><span><code>highway=path</code> + <code>cycleway=*</code></span></div>
+        <div class="sample"><span class="line solid" style="--c:#b8aa38;--w:6px"></span><span class="line solid" style="--c:#327a04;--w:5px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Trasy rowerowe</b><span><code>icn/ncn/rcn/lcn=yes</code>, szerokie kolorowe podbicie</span></div>
+        <div class="sample"><span class="line solid" style="--c:#4e4ede;--w:8px"></span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Track i ścieżki nie-rowerowe</h2>
+      <div class="row">
+        <div class="label"><b>Path zwykły</b><span><code>highway=path</code> bez roweru</span></div>
+        <div class="sample"><span class="line dash" style="--c:#606060;--w:3px;--d1:16px;--d2:30px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Dobry path</b><span><code>surface=compacted|gravel|fine_gravel</code></span></div>
+        <div class="sample"><span class="line dash" style="--c:#4f6f8f;--w:6px;--d1:22px;--d2:33px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Gorszy path</b><span><code>surface=ground|dirt|grass|unpaved</code></span></div>
+        <div class="sample"><span class="line dash" style="--c:#7a4f2f;--w:4px;--d1:12px;--d2:28px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Piaszczysty path</b><span><code>surface=sand</code></span></div>
+        <div class="sample"><span class="line dash" style="--c:#b47b2d;--w:4px;--d1:5px;--d2:23px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Track bez grade</b><span><code>highway=track</code></span></div>
+        <div class="sample"><span class="line dash" style="--c:#4f4f4f;--w:4px;--d1:16px;--d2:30px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Track grade1</b><span>najlepszy, prawie pełna linia</span></div>
+        <div class="sample"><span class="line solid" style="--c:#686868;--w:5px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Track grade2</b><span>długie kreski</span></div>
+        <div class="sample"><span class="line dash" style="--c:#555;--w:4px;--d1:26px;--d2:38px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Track grade3</b><span>średnie kreski</span></div>
+        <div class="sample"><span class="line dash" style="--c:#555;--w:4px;--d1:18px;--d2:32px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Track grade4</b><span>krótsze kreski</span></div>
+        <div class="sample"><span class="line dash" style="--c:#555;--w:3px;--d1:12px;--d2:28px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Track grade5</b><span>najgorszy, prawie kropkowany</span></div>
+        <div class="sample"><span class="line dash" style="--c:#555;--w:3px;--d1:5px;--d2:23px"></span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Drogi zwykłe</h2>
+      <div class="row">
+        <div class="label"><b>Autostrada / trunk</b><span><code>motorway|motorway_link|trunk|trunk_link</code></span></div>
+        <div class="sample"><span class="line solid" style="--c:#dbb042;--w:5px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Droga główna</b><span><code>primary|primary_link</code></span></div>
+        <div class="sample"><span class="line casing" style="--casing:#707070;--cw:6px"></span><span class="line inner" style="--inner:#fff;--iw:4px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Droga średnia</b><span><code>secondary|secondary_link</code></span></div>
+        <div class="sample"><span class="line casing" style="--casing:#707070;--cw:5px"></span><span class="line inner" style="--inner:#fff;--iw:3px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Droga lokalna</b><span><code>tertiary|tertiary_link</code></span></div>
+        <div class="sample"><span class="line casing" style="--casing:#707070;--cw:5px"></span><span class="line inner" style="--inner:#fff;--iw:3px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Ulica / osiedlowa</b><span><code>residential|living_street</code></span></div>
+        <div class="sample"><span class="line casing" style="--casing:#707070;--cw:4px"></span><span class="line inner" style="--inner:#fff;--iw:2px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Road / unclassified</b><span><code>unclassified|road</code></span></div>
+        <div class="sample"><span class="line casing" style="--casing:#707070;--cw:4px"></span><span class="line inner" style="--inner:#fff;--iw:2px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Service</b><span><code>driveway|parking_aisle|alley</code></span></div>
+        <div class="sample"><span class="line solid" style="--c:#f2f5ed;--w:4px"></span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Drogi nieutwardzone</h2>
+      <div class="row">
+        <div class="label"><b>Dobra nieutwardzona</b><span><code>compacted|gravel|fine_gravel</code>, obwódka jak V15</span></div>
+        <div class="sample"><span class="line dash" style="--c:#65737a;--w:6px;--d1:24px;--d2:34px"></span><span class="line solid" style="--c:#fff;--w:5px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Gorsza nieutwardzona</b><span><code>ground|dirt|grass|sand|unpaved</code>, obwódka jak V15</span></div>
+        <div class="sample"><span class="line dash" style="--c:#a35d28;--w:6px;--d1:12px;--d2:22px"></span><span class="line solid" style="--c:#fff;--w:5px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Zwykła lokalna</b><span><code>residential|unclassified|road</code> bez surface</span></div>
+        <div class="sample"><span class="line solid" style="--c:#707070;--w:6px"></span><span class="line solid" style="--c:#fff;--w:4px"></span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Teren</h2>
+      <div class="row">
+        <div class="label"><b>Las / puszcza</b><span><code>landuse=forest</code>, <code>natural=wood</code></span></div>
+        <div><span class="area" style="--fill:#85AF77"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Piasek / plaża</b><span><code>natural=sand|beach</code></span></div>
+        <div><span class="area" style="--fill:#D3C274"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Łąki / zarośla</b><span><code>grassland|scrub</code></span></div>
+        <div><span class="area" style="--fill:#8ed496"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Pola / naturalne tło</b><span>farmland, meadow, orchard itd.</span></div>
+        <div><span class="area" style="--fill:#E0D88D"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Woda</b><span>rzeka, jezioro, dock</span></div>
+        <div><span class="area" style="--fill:#6aabb8"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Lodowiec</b><span><code>glacier|ice_shelf</code></span></div>
+        <div><span class="area" style="--fill:#88F7F7"></span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>POI bikepacking</h2>
+      <div class="icons">
+        <div class="icon"><img src="../icons-kmen/campsite.svg" alt=""><span>camping / caravan od z11</span></div>
+        <div class="icon"><img src="../icons-kmen/harbor.svg" alt=""><span>slipway / marina</span></div>
+        <div class="icon"><img src="../icons-kmen/lodging.svg" alt=""><span>nocleg / hostel / hotel</span></div>
+        <div class="icon"><img src="../icons-kmen/shelter.svg" alt=""><span>shelter / hut</span></div>
+        <div class="icon"><img src="../icons-kmen/canoe.svg" alt=""><span>kajak / canoe</span></div>
+        <div class="icon"><img src="../icons-kmen/fuel.svg" alt=""><span>stacja paliw</span></div>
+        <div class="icon"><img src="../icons-kmen/water.svg" alt=""><span>woda pitna</span></div>
+        <div class="icon"><img src="../icons-kmen/bike-shop.svg" alt=""><span>rowery / serwis</span></div>
+        <div class="icon"><img src="../icons-kmen/supermarket.svg" alt=""><span>supermarket</span></div>
+        <div class="icon"><img src="../icons-kmen/coffee.svg" alt=""><span>kawiarnia</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Poziomice i nazwy</h2>
+      <div class="row">
+        <div class="label"><b>Poziomica pomocnicza</b><span>minor contour</span></div>
+        <div class="sample"><span class="line solid" style="--c:#938945;--w:1px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Poziomica główna</b><span>major contour, etykieta priority 1</span></div>
+        <div class="sample"><span class="line solid" style="--c:#938945;--w:3px"></span></div>
+      </div>
+      <div class="row">
+        <div class="label"><b>City</b><span>zoom 6, priority 70, size 20</span></div>
+        <div style="font-size:20px;font-weight:700;text-shadow:0 0 2px #fff;">Miasto</div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Town</b><span>zoom 7, priority 50, size 18</span></div>
+        <div style="font-size:18px;font-weight:700;text-shadow:0 0 2px #fff;">Miasteczko</div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Village</b><span>zoom 9, priority 40, size 17</span></div>
+        <div style="font-size:17px;font-weight:700;text-shadow:0 0 2px #fff;">Wieś</div>
+      </div>
+      <div class="row">
+        <div class="label"><b>Hamlet</b><span>zoom 11, priority 30, size 16</span></div>
+        <div style="font-size:16px;font-weight:700;color:#404040;text-shadow:0 0 2px #fff;">Osada</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

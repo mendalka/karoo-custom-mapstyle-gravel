@@ -1,0 +1,6 @@
+*.backup
+*.bak
+*.tmp
+*.map
+*.zip
+.DS_Store

@@ -49,73 +49,92 @@ This project starts from the original Hammerhead Karoo 3 V15 style. Inspiration 
 
 After major Karoo system updates, the style may be overwritten. In that case, copy the XML again and ensure the filename matches the current `offline_vXX.xml` version.
 
-## Compact legend
+## Legend — Legenda Kmen V15
 
-The compact legend is available at:
+> Aktualny styl: `offline_v15.xml`.  
+> Interaktywna wersja mobilna: [`docs/legend_kmen_compact.html`](docs/legend_kmen_compact.html)
 
-```text
-docs/legend_kmen_compact.html
-```
+### 🚴 Rower
 
-You can open it in a mobile browser. It represents the current `karoo-custom-mapstyle-gravel` style only.
+| Element | Tagi | Kolor / wygląd |
+|---------|------|----------------|
+| Ścieżka rowerowa | `highway=cycleway` | <span style="color:#327a04">━━━━━</span> |
+| Cycleway nieutwardzona | `highway=cycleway` + szuter/ziemia/piasek | <span style="color:#b8aa38">━━━━━</span> <span style="color:#327a04">━━━</span> |
+| Path z dostępem rowerowym | `highway=path` + `bicycle=yes\|designated` | <span style="color:#b8aa38">━━━━━</span> <span style="color:#00a878">━━━</span> |
+| Path z cycleway | `highway=path` + `cycleway=*` | <span style="color:#b8aa38">━━━━━</span> <span style="color:#327a04">━━━</span> |
+| Trasy rowerowe | `icn/ncn/rcn/lcn=yes`, szerokie kolorowe podbicie | <span style="color:#4e4ede">━━━━━━━</span> |
 
-### Legend summary (from `docs/legend_kmen_compact.html`)
+### 🥾 Track i ścieżki nie-rowerowe
 
-- **Bike**
-  - Cycleway (`highway=cycleway`)
-  - Unpaved cycleway overlays
-  - Bike-access path (`highway=path + bicycle=yes|designated`)
-  - Path with cycleway tagging (`highway=path + cycleway=*`)
-  - Bicycle networks (`icn/ncn/rcn/lcn`) with clear colored highlighting
+| Element | Tagi | Kolor / wygląd |
+|---------|------|----------------|
+| Path zwykły | `highway=path` bez roweru | <span style="color:#606060">╌╌╌╌╌</span> |
+| Dobry path | `surface=compacted\|gravel\|fine_gravel` | <span style="color:#4f6f8f">╍╍╍╍╍</span> |
+| Gorszy path | `surface=ground\|dirt\|grass\|unpaved` | <span style="color:#7a4f2f">╌╌╌╌╌</span> |
+| Piaszczysty path | `surface=sand` | <span style="color:#b47b2d">·····</span> |
+| Track bez grade | `highway=track` | <span style="color:#4f4f4f">╌╌╌╌╌</span> |
+| Track grade1 | najlepszy, prawie pełna linia | <span style="color:#686868">━━━━━</span> |
+| Track grade2 | długie kreski | <span style="color:#555555">╍╍╍╍╍</span> |
+| Track grade3 | średnie kreski | <span style="color:#555555">╌╌╌╌╌</span> |
+| Track grade4 | krótsze kreski | <span style="color:#555555">╌╌╌</span> |
+| Track grade5 | najgorszy, prawie kropkowany | <span style="color:#555555">·····</span> |
 
-- **Track and non-bike paths**
-  - Plain path (`highway=path` without bike tags)
-  - Good path surfaces (`compacted|gravel|fine_gravel`)
-  - Rough path surfaces (`ground|dirt|grass|unpaved`)
-  - Sandy path (`surface=sand`)
-  - Track quality levels: `grade1` to `grade5`
+### 🛣️ Drogi zwykłe
 
-- **Regular roads**
-  - `motorway|trunk`
-  - `primary`
-  - `secondary`
-  - `tertiary`
-  - `residential|living_street`
-  - `unclassified|road`
-  - service roads (`driveway|parking_aisle|alley`)
+| Element | Tagi | Kolor / wygląd |
+|---------|------|----------------|
+| Autostrada / trunk | `motorway\|motorway_link\|trunk\|trunk_link` | <span style="color:#dbb042">━━━━━</span> |
+| Droga główna | `primary\|primary_link` | <span style="color:#707070">━</span><span style="color:#ffffff">━━━</span><span style="color:#707070">━</span> obwódka / biały rdzeń |
+| Droga średnia | `secondary\|secondary_link` | <span style="color:#707070">━</span><span style="color:#ffffff">━━</span><span style="color:#707070">━</span> obwódka / biały rdzeń |
+| Droga lokalna | `tertiary\|tertiary_link` | <span style="color:#707070">━</span><span style="color:#ffffff">━━</span><span style="color:#707070">━</span> obwódka / biały rdzeń |
+| Ulica / osiedlowa | `residential\|living_street` | <span style="color:#707070">━</span><span style="color:#ffffff">━</span><span style="color:#707070">━</span> obwódka / biały rdzeń |
+| Road / unclassified | `unclassified\|road` | <span style="color:#707070">━</span><span style="color:#ffffff">━</span><span style="color:#707070">━</span> obwódka / biały rdzeń |
+| Service | `driveway\|parking_aisle\|alley` | <span style="color:#999999">━━━━━</span> |
 
-- **Unpaved roads**
-  - Good unpaved casing (`compacted|gravel|fine_gravel`)
-  - Rough unpaved casing (`ground|dirt|grass|sand|unpaved`)
-  - Standard local roads without `surface=*`
+### 🪨 Drogi nieutwardzone
 
-- **Terrain**
-  - forest/wood
-  - sand/beach
-  - grassland/scrub
-  - farmland/meadow/orchard background
-  - water
-  - glacier/ice shelf
+| Element | Tagi | Kolor / wygląd |
+|---------|------|----------------|
+| Dobra nieutwardzona | `compacted\|gravel\|fine_gravel`, obwódka jak V15 | <span style="color:#65737a">╍╍╍╍╍</span> biały rdzeń |
+| Gorsza nieutwardzona | `ground\|dirt\|grass\|sand\|unpaved`, obwódka jak V15 | <span style="color:#a35d28">╌╌╌╌╌</span> biały rdzeń |
+| Zwykła lokalna | `residential\|unclassified\|road` bez surface | <span style="color:#707070">━</span><span style="color:#ffffff">━━</span><span style="color:#707070">━</span> |
 
-- **Bikepacking POIs (icons-kmen)**
-  - camping/caravan
-  - slipway/marina
-  - lodging/hostel/hotel
-  - shelter/hut
-  - canoe/kayak access
-  - fuel station
-  - drinking water
-  - bike shop/service
-  - supermarket
-  - coffee
+### 🌿 Teren
 
-- **Contours and place names**
-  - minor and major contours in brown (`#938945`)
-  - place-name emphasis:
-    - city: zoom 6, priority 70, size 20
-    - town: zoom 7, priority 50, size 18
-    - village: zoom 9, priority 40, size 17
-    - hamlet: zoom 11, priority 30, size 16
+| Element | Tagi | Kolor |
+|---------|------|-------|
+| Las / puszcza | `landuse=forest`, `natural=wood` | <span style="color:#85AF77">████</span> `#85AF77` |
+| Piasek / plaża | `natural=sand\|beach` | <span style="color:#D3C274">████</span> `#D3C274` |
+| Łąki / zarośla | `grassland\|scrub` | <span style="color:#8ed496">████</span> `#8ed496` |
+| Pola / naturalne tło | farmland, meadow, orchard itd. | <span style="color:#E0D88D">████</span> `#E0D88D` |
+| Woda | rzeka, jezioro, dock | <span style="color:#6aabb8">████</span> `#6aabb8` |
+| Lodowiec | `glacier\|ice_shelf` | <span style="color:#88F7F7">████</span> `#88F7F7` |
+
+### 📍 POI bikepacking
+
+| Ikona | Element |
+|-------|---------|
+| ![camping](icons-kmen/campsite.svg) | camping / caravan od z11 |
+| ![harbor](icons-kmen/harbor.svg) | slipway / marina |
+| ![lodging](icons-kmen/lodging.svg) | nocleg / hostel / hotel |
+| ![shelter](icons-kmen/shelter.svg) | shelter / hut |
+| ![canoe](icons-kmen/canoe.svg) | kajak / canoe |
+| ![fuel](icons-kmen/fuel.svg) | stacja paliw |
+| ![water](icons-kmen/water.svg) | woda pitna |
+| ![bike-shop](icons-kmen/bike-shop.svg) | rowery / serwis |
+| ![supermarket](icons-kmen/supermarket.svg) | supermarket |
+| ![coffee](icons-kmen/coffee.svg) | kawiarnia |
+
+### 🗺️ Poziomice i nazwy
+
+| Element | Parametry | Kolor |
+|---------|-----------|-------|
+| Poziomica pomocnicza | minor contour, 1 px | <span style="color:#938945">━━━━━</span> `#938945` |
+| Poziomica główna | major contour, 3 px, etykieta priority 1 | <span style="color:#938945">━━━━━</span> `#938945` |
+| **City** | zoom 6, priority 70, size 20 | pogrubiona, duża |
+| **Town** | zoom 7, priority 50, size 18 | pogrubiona |
+| **Village** | zoom 9, priority 40, size 17 | standardowa |
+| **Hamlet** | zoom 11, priority 30, size 16 | mniejsza, szara |
 
 ## Notes
 

@@ -1,71 +1,129 @@
 # karoo-custom-mapstyle-gravel
 
-Customowy styl mapy dla Hammerhead Karoo 3, oparty na oryginalnym stylu `offline_v15.xml`, z naciskiem na jazdę gravel, bikepacking i czytelne rozróżnienie dróg, ścieżek, nawierzchni oraz POI przydatnych w trasie.
+A custom map style for Hammerhead Karoo 3, based on the original `offline_v15.xml`, focused on gravel riding, bikepacking, and clearer distinction of roads, paths, surfaces, and useful POIs.
 
-Projekt powstał na bazie oryginalnego stylu Hammerhead Karoo 3 V15. Inspiracja i część pomysłów pochodzą z projektu [dansoft-ch/karoo-custom-mapstyle](https://github.com/dansoft-ch/karoo-custom-mapstyle).
+This project starts from the original Hammerhead Karoo 3 V15 style. Inspiration and selected ideas come from [dansoft-ch/karoo-custom-mapstyle](https://github.com/dansoft-ch/karoo-custom-mapstyle).
 
-## Co zawiera
+## Contents
 
-- `offline_v15.xml` - aktualny styl mapy.
-- `icons-kmen/` - dodatkowe i zmienione ikony POI.
-- `docs/legend_kmen_compact.html` - kompaktowa legenda do trzymania na telefonie.
+- `offline_v15.xml` - current map style.
+- `icons-kmen/` - additional and customized POI icons.
+- `docs/legend_kmen_compact.html` - compact legend for quick mobile reference.
 
-## Najważniejsze zmiany
+## Key changes
 
-- Czytelniejsze ścieżki rowerowe:
+- Clearer bike-related paths:
   - `highway=cycleway`
   - `highway=path + bicycle=yes|designated`
   - `highway=path + cycleway=*`
-  - sieci rowerowe `icn`, `ncn`, `rcn`, `lcn`
-- Rozróżnienie dróg terenowych i wiejskich:
+  - bike route networks `icn`, `ncn`, `rcn`, `lcn`
+- Better distinction for tracks, rural roads, and unpaved surfaces:
   - `tracktype=grade1..grade5`
-  - lepsze nieutwardzone `compacted|gravel|fine_gravel`
-  - gorsze nieutwardzone `ground|dirt|grass|sand|unpaved`
-  - osobne style dla nie-rowerowych `highway=path`
-- Lepsze POI na bikepacking:
-  - camping, caravan site, hostel/hotel/nocleg
+  - better unpaved `compacted|gravel|fine_gravel`
+  - rougher unpaved `ground|dirt|grass|sand|unpaved`
+  - separate styles for non-bike `highway=path`
+- Bikepacking-focused POI visibility:
+  - camping, caravan site, hostel/hotel/lodging
   - shelter/hut
-  - slipway/marina/dock/kajak
-  - paliwo, woda, supermarket, kawiarnia, serwis rowerowy
-- Ciemniejszy las, bardziej widoczna plaża/piasek i teren naturalny.
-- Mocniejsze nazwy miejscowości.
-- Brązowe poziomice z niskim priorytetem etykiet wysokości.
+  - slipway/marina/dock/canoe-kayak access
+  - fuel, drinking water, supermarket, coffee, bike service
+- Darker forest, more visible sand/beach and natural terrain.
+- Stronger town and city labels.
+- Brown contour lines with lower elevation-label priority.
 
-## Instalacja na Hammerhead Karoo 3
+## Installation on Hammerhead Karoo 3
 
-1. Podłącz Karoo 3 do komputera przez USB.
-2. Włącz opcje programistyczne na Karoo, jeżeli nie są włączone.
-3. W ustawieniach programistycznych ustaw domyślną konfigurację USB na transfer plików.
-4. Otwórz pamięć wewnętrzną Karoo.
-5. Znajdź katalog, w którym znajduje się aktualny plik stylu, np. `offline_v15.xml`.
-6. Zrób kopię oryginalnego pliku, np. `offline_v15.xml.backup`.
-7. Skopiuj z tego repozytorium do katalogu głównego pamięci Karoo:
+1. Connect Karoo 3 to your computer via USB.
+2. Enable developer options on Karoo if they are not already enabled.
+3. In developer settings, set the default USB mode to file transfer.
+4. Open Karoo internal storage.
+5. Locate the current style file, for example `offline_v15.xml`.
+6. Create a backup, for example `offline_v15.xml.backup`.
+7. Copy from this repository to the Karoo storage root:
    - `offline_v15.xml`
-   - katalog `icons-kmen`
-8. Upewnij się, że plik stylu ma nazwę oczekiwaną przez aktualną wersję oprogramowania Karoo.
-   - dla wersji 15: `offline_v15.xml`
-   - jeżeli Karoo używa innej wersji, dopasuj nazwę, np. `offline_v16.xml`
-9. Odłącz Karoo i ponownie otwórz widok mapy albo zrestartuj urządzenie.
+   - `icons-kmen` directory
+8. Make sure the style filename matches the version expected by your Karoo firmware.
+   - for version 15: `offline_v15.xml`
+   - if your Karoo uses another version, rename accordingly, e.g. `offline_v16.xml`
+9. Disconnect Karoo and reopen map view, or reboot the device.
 
-Po większej aktualizacji systemu Karoo styl może zostać nadpisany. Wtedy zwykle wystarczy ponownie skopiować plik XML i upewnić się, że ma aktualną nazwę `offline_vXX.xml`.
+After major Karoo system updates, the style may be overwritten. In that case, copy the XML again and ensure the filename matches the current `offline_vXX.xml` version.
 
-## Legenda
+## Compact legend
 
-Kompaktowa legenda znajduje się w:
+The compact legend is available at:
 
 ```text
 docs/legend_kmen_compact.html
 ```
 
-Można ją otworzyć w przeglądarce na telefonie. Pokazuje tylko aktualny styl `karoo-custom-mapstyle-gravel`.
+You can open it in a mobile browser. It represents the current `karoo-custom-mapstyle-gravel` style only.
 
-## Uwagi
+### Legend summary (from `docs/legend_kmen_compact.html`)
 
-Styl zależy od tagów zapisanych w pliku mapy `.map`. Jeżeli dany tag istnieje w OpenStreetMap, ale nie został zapisany w mapie offline Karoo, sam styl go nie wyświetli.
+- **Bike**
+  - Cycleway (`highway=cycleway`)
+  - Unpaved cycleway overlays
+  - Bike-access path (`highway=path + bicycle=yes|designated`)
+  - Path with cycleway tagging (`highway=path + cycleway=*`)
+  - Bicycle networks (`icn/ncn/rcn/lcn`) with clear colored highlighting
 
-Przykład: jeżeli mapa offline nie zawiera `leisure=marina`, reguła dla mariny nie zadziała, nawet jeśli obiekt jest widoczny online w OpenStreetMap.
+- **Track and non-bike paths**
+  - Plain path (`highway=path` without bike tags)
+  - Good path surfaces (`compacted|gravel|fine_gravel`)
+  - Rough path surfaces (`ground|dirt|grass|unpaved`)
+  - Sandy path (`surface=sand`)
+  - Track quality levels: `grade1` to `grade5`
 
-## Inspiracje i źródła instalacji
+- **Regular roads**
+  - `motorway|trunk`
+  - `primary`
+  - `secondary`
+  - `tertiary`
+  - `residential|living_street`
+  - `unclassified|road`
+  - service roads (`driveway|parking_aisle|alley`)
+
+- **Unpaved roads**
+  - Good unpaved casing (`compacted|gravel|fine_gravel`)
+  - Rough unpaved casing (`ground|dirt|grass|sand|unpaved`)
+  - Standard local roads without `surface=*`
+
+- **Terrain**
+  - forest/wood
+  - sand/beach
+  - grassland/scrub
+  - farmland/meadow/orchard background
+  - water
+  - glacier/ice shelf
+
+- **Bikepacking POIs (icons-kmen)**
+  - camping/caravan
+  - slipway/marina
+  - lodging/hostel/hotel
+  - shelter/hut
+  - canoe/kayak access
+  - fuel station
+  - drinking water
+  - bike shop/service
+  - supermarket
+  - coffee
+
+- **Contours and place names**
+  - minor and major contours in brown (`#938945`)
+  - place-name emphasis:
+    - city: zoom 6, priority 70, size 20
+    - town: zoom 7, priority 50, size 18
+    - village: zoom 9, priority 40, size 17
+    - hamlet: zoom 11, priority 30, size 16
+
+## Notes
+
+The style depends on tags stored in the offline `.map` file. If a tag exists in online OpenStreetMap but is not present in the Karoo offline map extract, the style cannot render it.
+
+Example: if the offline map does not contain `leisure=marina`, the marina rule will not appear, even if marina objects are visible in online OSM.
+
+## Inspiration and installation references
 
 - [dansoft-ch/karoo-custom-mapstyle](https://github.com/dansoft-ch/karoo-custom-mapstyle)
 - [Wgranie nowego stylu map do Karoo Hammerhead 3](https://bobiko.blog/2026/02/hammerhead-karoo3-style/)
